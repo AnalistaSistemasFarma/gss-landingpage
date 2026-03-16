@@ -1,0 +1,50 @@
+---
+const gssLogoSrc = "https://www.figma.com/api/mcp/asset/cc592cf6-ddfb-46fa-9724-8fda8b6f3b11";
+const emailIconSrc = "https://www.figma.com/api/mcp/asset/92b02f5e-7c82-4ffa-a264-ff73085abe15";
+const locationIconSrc = "https://www.figma.com/api/mcp/asset/5c1fdbe0-6609-463b-aec9-92254694df50";
+---
+
+<footer id="contacto" class="bg-[#00233d] text-[#d9d9d9] w-full py-12 px-6 md:px-12 lg:px-20">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-start gap-10 mb-10">
+
+      <!-- Contact info -->
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center gap-3">
+          <img src={emailIconSrc} alt="" aria-hidden="true" class="w-6 h-6 shrink-0" />
+          <a href="mailto:notificaciones@gsslatam.com" class="text-[#d9d9d9] font-semibold text-lg hover:text-white transition-colors">
+            notificaciones@gsslatam.com
+          </a>
+        </div>
+        <div class="flex items-start gap-3">
+          <img src={locationIconSrc} alt="" aria-hidden="true" class="w-6 h-6 shrink-0 mt-1" />
+          <address class="text-[#d9d9d9] font-semibold text-base not-italic leading-[1.6]">
+            Calle 98 # 70-91 Oficina 301<br />
+            Centro Empresarial Pontevedra / Ed. Vardí
+          </address>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="flex flex-col gap-3 text-center md:text-right">
+        <a href="#" class="text-[#d9d9d9] font-semibold text-lg hover:text-white transition-colors tracking-wide uppercase">
+          Política de Datos
+        </a>
+      </div>
+
+      <!-- GSS Logo -->
+      <div class="flex items-center">
+        <img src={gssLogoSrc} alt="Group Shared Services" class="h-28 w-auto object-contain" />
+      </div>
+
+    </div>
+
+    <!-- Bottom copyright -->
+    <div class="border-t border-[#1a3a52] pt-6 text-center">
+      <p class="text-sm text-[#8899aa] leading-[1.6]">
+        SynerLink es un software creado por Group Shared Services, su uso es bajo previa autorización de la entidad.
+        Todos los derechos reservados. {new Date().getFullYear()}
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/molecules/Navbar.astro';
+import Footer from '../../components/molecules/Footer.astro';
+import Hero from '../../components/templates/Hero.astro';
+import ComoCrecer from '../../components/sections/ComoCrecer.astro';
+import AdnSocios from '../../components/sections/AdnSocios.astro';
+import NuestrosAliados from '../../components/sections/NuestrosAliados.astro';
+import NuestrosServicios from '../../components/sections/NuestrosServicios.astro';
+import Synerlink from '../../components/sections/Synerlink.astro';
+
+const lang = 'es';
+---
+
+<Layout
+  title="Convertimos complejidad organizacional en sistemas funcionales"
+  description="GSS es tu socio estratégico en la construcción de operaciones eficientes. Ordenamos procesos, acompañamos transformaciones y habilitamos el crecimiento."
+  keywords="GSS, Group Shared Services, servicios compartidos, consultoría organizacional, tecnología, SynerLink"
+  lang={lang}
+>
+  <Navbar lang={lang} />
+  <main>
+    <Hero />
+    <ComoCrecer />
+    <AdnSocios />
+    <NuestrosAliados />
+    <NuestrosServicios />
+    <Synerlink />
+  </main>
+  <Footer />
+</Layout>

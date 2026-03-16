@@ -1,0 +1,70 @@
+---
+import '../styles/global.css';
+import { defaultLang, languages } from '../i18n';
+import { SITE_NAME, SITE_URL } from '../global/global.constants';
+
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+  lang?: string;
+}
+
+const {
+  title,
+  description = '',
+  keywords = '',
+  image = '/images/og-image.jpg',
+  lang = defaultLang,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
+const currentLang = Object.keys(languages).find(l => Astro.url.pathname.startsWith(`/${l}`)) || defaultLang;
+const baseRoute = Astro.url.pathname.replace(new RegExp(`^/${currentLang}`), '') || '/';
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Primary -->
+    <title>{title} | {SITE_NAME}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- hreflang -->
+    {Object.keys(languages).map(l => (
+      <link rel="alternate" hreflang={l} href={`${SITE_URL}/${l}${baseRoute}`} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={`${SITE_URL}/${defaultLang}${baseRoute}`} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content={SITE_NAME} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

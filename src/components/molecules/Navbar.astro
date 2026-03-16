@@ -1,0 +1,115 @@
+---
+import { languages, useTranslations } from '../../i18n';
+
+interface Props {
+  lang?: string;
+}
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang as 'es' | 'en');
+
+// Build alternate language URLs
+const currentPath = Astro.url.pathname.replace(new RegExp(`^/${lang}`), '') || '/';
+---
+
+<nav class="w-full bg-[#0076cd] sticky top-0 z-50">
+  <div class="max-w-[1920px] mx-auto px-10 flex items-center justify-between h-[80px]">
+
+    <!-- Logo -->
+    <a href={`/${lang}`} class="flex items-center shrink-0">
+      <img
+        src="/images/header/logogss.svg"
+        alt="Group Shared Services"
+        class="h-14 w-auto object-contain"
+      />
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-1">
+      <ul class="flex items-center gap-1">
+        <li>
+          <a href={`/${lang}#como-crecer`} class="text-white font-medium text-base px-4 py-2 hover:text-[#f9c621] transition-colors">
+            {t('nav.como-crecer')}
+          </a>
+        </li>
+        <li>
+          <a href={`/${lang}#adn-socios`} class="text-white font-medium text-base px-4 py-2 hover:text-[#f9c621] transition-colors">
+            {t('nav.adn-socios')}
+          </a>
+        </li>
+        <li>
+          <a href={`/${lang}#servicios`} class="text-white font-medium text-base px-4 py-2 hover:text-[#f9c621] transition-colors">
+            {t('nav.servicios')}
+          </a>
+        </li>
+        <li>
+          <a href={`/${lang}#synerlink`} class="text-white font-medium text-base px-4 py-2 hover:text-[#f9c621] transition-colors">
+            {t('nav.synerlink')}
+          </a>
+        </li>
+        <li>
+          <a href={`/${lang}#contacto`} class="text-white font-medium text-base px-4 py-2 hover:text-[#f9c621] transition-colors">
+            {t('nav.contacto')}
+          </a>
+        </li>
+      </ul>
+
+      <!-- Language switcher -->
+      <div class="flex items-center gap-1 ml-4 border-l border-white/30 pl-4">
+        {Object.entries(languages).map(([code, label]) => (
+          <a
+            href={`/${code}${currentPath}`}
+            class={`text-sm font-semibold px-3 py-1.5 rounded transition-colors ${
+              lang === code
+                ? 'bg-white text-[#0076cd]'
+                : 'text-white hover:bg-white/20'
+            }`}
+            aria-label={label}
+          >
+            {code.toUpperCase()}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Mobile: language switcher + hamburger -->
+    <div class="md:hidden flex items-center gap-2">
+      <div class="flex items-center gap-1">
+        {Object.entries(languages).map(([code, label]) => (
+          <a
+            href={`/${code}${currentPath}`}
+            class={`text-xs font-semibold px-2.5 py-1 rounded transition-colors ${
+              lang === code
+                ? 'bg-white text-[#0076cd]'
+                : 'text-white hover:bg-white/20'
+            }`}
+            aria-label={label}
+          >
+            {code.toUpperCase()}
+          </a>
+        ))}
+      </div>
+      <button id="mobile-menu-btn" class="text-white p-2" aria-label="Abrir menú">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[#005391] px-6 pb-4">
+    <ul class="flex flex-col gap-1">
+      <li><a href={`/${lang}#como-crecer`} class="block text-white font-medium py-2 hover:text-[#f9c621]">{t('nav.como-crecer')}</a></li>
+      <li><a href={`/${lang}#adn-socios`} class="block text-white font-medium py-2 hover:text-[#f9c621]">{t('nav.adn-socios')}</a></li>
+      <li><a href={`/${lang}#servicios`} class="block text-white font-medium py-2 hover:text-[#f9c621]">{t('nav.servicios')}</a></li>
+      <li><a href={`/${lang}#synerlink`} class="block text-white font-medium py-2 hover:text-[#f9c621]">{t('nav.synerlink')}</a></li>
+      <li><a href={`/${lang}#contacto`} class="block text-white font-medium py-2 hover:text-[#f9c621]">{t('nav.contacto')}</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>

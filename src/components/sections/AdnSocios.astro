@@ -1,0 +1,40 @@
+---
+const bgImgSrc = "https://www.figma.com/api/mcp/asset/20d3db62-1c4b-4673-a24a-21de6815005d";
+---
+
+<section id="adn-socios" class="w-full relative">
+  <!-- Background image -->
+  <div class="absolute inset-0 overflow-hidden">
+    <img
+      src={bgImgSrc}
+      alt=""
+      class="w-full h-full object-cover object-center"
+      style="transform: rotate(180deg);"
+      aria-hidden="true"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-[rgba(8,1,91,0.55)] to-[rgba(255,0,4,0.2)] mix-blend-multiply"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 py-20 flex flex-col lg:flex-row items-end lg:items-start gap-10">
+
+    <!-- Text card -->
+    <div class="lg:w-[560px] bg-[#778895] bg-opacity-85 p-10 rounded-lg shrink-0">
+      <p class="text-[#f3f3f3] text-xl font-semibold leading-[1.2] tracking-tight mb-4">
+        ADN DE NUESTROS ALIADOS ESTRATÉGICOS
+      </p>
+      <p class="text-[#f3f3f3] text-4xl md:text-5xl font-bold leading-[1.2] tracking-tight">
+        Trabajamos con quienes comparten nuestra identidad emprendedora,
+        generamos valor mientras te dedicas a hacer lo que mejor sabes.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- "Nuestros Aliados:" at bottom -->
+  <div class="relative z-10 pb-12 px-6 md:px-12 lg:px-20">
+    <h2 class="text-white text-5xl md:text-6xl font-bold leading-[1.2] tracking-tight">
+      Nuestros Aliados:
+    </h2>
+  </div>
+</section>

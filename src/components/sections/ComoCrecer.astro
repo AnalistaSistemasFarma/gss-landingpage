@@ -1,0 +1,83 @@
+---
+const carImgSrc = "/images/home/crecimiento.webp";
+
+const iconMove = "https://www.figma.com/api/mcp/asset/5bcfc1b8-c471-421a-88ba-6333879490f8";
+const iconTrendingUp = "https://www.figma.com/api/mcp/asset/cfb2112f-2463-49b7-be30-ae2d76b3dbc4";
+const iconZap = "https://www.figma.com/api/mcp/asset/4927c99c-e742-4ca5-9a45-b7a5d669b0f1";
+const iconPlusCircle = "https://www.figma.com/api/mcp/asset/744ecde4-a169-43f0-8c1a-197ee5140d7f";
+const iconUsers = "https://www.figma.com/api/mcp/asset/dd99482e-b36f-44ed-a79d-2a1991df26f8";
+const iconUmbrella = "https://www.figma.com/api/mcp/asset/2ca18684-dcb3-4774-a46f-48b615e99fbc";
+
+const cards = [
+  {
+    icon: iconUmbrella,
+    title: "Diagnosticamos soluciones",
+    body: "En GSS asesoramos, orientamos y re-estructuramos motores de desarrollo. Nuestro mayor insumo son tus dolencias, ya que con ellas partimos para ser un centro de soluciones multidisciplinares.",
+  },
+  {
+    icon: iconUsers,
+    title: "Acompañamos el proceso",
+    body: "No entregamos recomendaciones y desaparecemos. Caminamos contigo durante la implementación, ajustando decisiones, resolviendo fricciones y asegurando que el sistema funcione en la práctica.",
+  },
+  {
+    icon: iconPlusCircle,
+    title: "Generamos Valor",
+    body: "Cada intervención deja capacidades instaladas: estándares, rutas claras, herramientas y criterios que reducen reprocesos y permiten operar mejor hoy y escalar mañana.",
+  },
+  {
+    icon: iconZap,
+    title: "Potenciamos Capacidades",
+    body: "Nuestro trabajo no busca dependencia. Fortalecemos equipos, clarificamos roles y elevamos el estándar interno para que la organización gane autonomía y madurez operativa.",
+  },
+  {
+    icon: iconTrendingUp,
+    title: "Hablamos el idioma de los KPI",
+    body: "Medimos lo que importa. Tiempos, carga operativa, reprocesos, cumplimiento y satisfacción se convierten en datos para mejorar decisiones y demostrar impacto real.",
+  },
+  {
+    icon: iconMove,
+    title: "Que crezcas es nuestra meta",
+    body: "Nuestro éxito no se mide por tareas cerradas, sino por organizaciones que operan con más orden, claridad y capacidad de crecimiento gracias a sistemas bien construidos.",
+  },
+];
+---
+
+<section id="como-crecer" class="bg-[#005391] w-full py-16 px-6 md:px-12 lg:px-20">
+  <!-- Top: image + yellow banner side by side -->
+  <div class="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-8 mb-14">
+    <!-- Crecimiento image -->
+    <div class="flex-1 min-h-[300px] lg:min-h-[420px] overflow-hidden rounded-[80px]">
+      <img
+        src={carImgSrc}
+        alt="Crecimiento con impacto exponencial"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <!-- Yellow banner -->
+    <div class="lg:w-[340px] shrink-0 flex items-start">
+      <div class="bg-[#f9c621] p-8 rounded-lg w-full">
+        <p class="text-[#f3f3f3] text-4xl md:text-[2.8rem] font-bold leading-[1.2] tracking-tight">
+          CRECIMIENTO ESCALONADO, CON IMPACTO EXPONENCIAL
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature cards grid -->
+  <div class="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {cards.map((card) => (
+      <div class="bg-white border border-[#d9d9d9] rounded-lg p-6 flex gap-6 items-start">
+        <img src={card.icon} alt="" class="w-8 h-8 shrink-0 mt-1" />
+        <div class="flex flex-col gap-2">
+          <h3 class="font-semibold text-xl text-[#1e1e1e] leading-[1.2] tracking-tight">
+            {card.title}
+          </h3>
+          <p class="text-[#757575] text-base leading-[1.4]">
+            {card.body}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

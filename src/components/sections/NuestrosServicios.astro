@@ -1,0 +1,74 @@
+---
+const services = [
+  {
+    title: "Finanzas y Reporte",
+    body: "Damos visibilidad total a tu operación con reportes de ventas, rentabilidad, estados financieros y control presupuestal. Información precisa, a tiempo y accionable que guía cada decisión. Tus números cuentan una historia… nosotros la hacemos clara y poderosa.",
+  },
+  {
+    title: "Contabilidad",
+    body: "Transformamos tus números en decisiones inteligentes. Centralizamos impuestos, conciliaciones, datos maestros y estados financieros para que tu negocio gane control, claridad y velocidad. Con nosotros, la contabilidad deja de ser un dolor de cabeza y se convierte en tu aliado estratégico.",
+  },
+  {
+    title: "Capital de Trabajo",
+    body: "Aseguramos liquidez y orden financiero con pagos programados, manejo bancario, divisas y productos financieros a la medida. Flujo de caja predecible, procesos confiables y tiempos de respuesta rápidos. La tranquilidad financiera también se puede operar.",
+  },
+  {
+    title: "Crédito y Cartera",
+    body: "Maximizamos tu flujo de caja con análisis financiero preciso, comités eficientes y decisiones de crédito basadas en datos reales. Nuevos clientes, cupos optimizados, recaudo seguro: nosotros cuidamos tu liquidez para que tú te enfoques en crecer.",
+  },
+  {
+    title: "Talento Humano",
+    body: "Impulsamos organizaciones mediante gente inspirada y procesos impecables: nómina, selección, bienestar, cultura y cumplimiento legal. Convertimos el talento en motor de sostenibilidad, engagement y alto desempeño. Tu equipo puede más… y nosotros lo potenciamos.",
+  },
+  {
+    title: "Legal",
+    body: "Blindamos tu negocio con asesoría jurídica clara, oportuna y estratégica. Contratos, propiedad industrial, Habeas Data, seguros, procesos judiciales y comunicaciones oficiales: todo bajo un enfoque preventivo que reduce riesgos y fortalece tu operación. Seguridad jurídica que impulsa, no que frena.",
+  },
+  {
+    title: "Tecnología y Desarrollo",
+    body: "Elevamos tu operación con infraestructura sólida, automatización real y sistemas que simplifican tu día a día. Desde SAP hasta plataformas propias como Synerlink, convertimos lo complejo en intuitivo y escalable. Tu crecimiento merece tecnología que te siga el ritmo.",
+  },
+  {
+    title: "Técnica",
+    body: "Protegemos tus productos y tu reputación con una gestión sanitaria y regulatoria integral. Registros, renovaciones, liberaciones, inspecciones y soporte técnico que garantiza cumplimiento y velocidad comercial. Avanza seguro en cada trámite y cada mercado.",
+  },
+];
+---
+
+<section id="servicios" class="w-full bg-white py-16 px-6 md:px-12 lg:px-20 overflow-hidden">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="flex flex-col lg:flex-row gap-12">
+
+      <!-- Left column: description -->
+      <div class="lg:w-[420px] shrink-0 flex flex-col justify-between">
+        <div class="flex-1 bg-[#d9d9d9] rounded-2xl min-h-[300px] lg:min-h-[500px] mb-8"></div>
+        <p class="text-[#00233d] text-base md:text-lg leading-[1.6]">
+          Nuestros servicios en esta primera etapa se distribuyen en áreas claves de administración,
+          talento humano, tecnología, legales y gestión técnica. Próximamente contaremos con un portafolio
+          aún más amplio para poder gestionar cada aspecto en el que nos necesites.
+        </p>
+      </div>
+
+      <!-- Right column: title + cards grid -->
+      <div class="flex-1 flex flex-col gap-6">
+        <h2 class="text-[#00233d] text-4xl md:text-5xl font-bold leading-[1.2] tracking-tight">
+          Nuestros Servicios:
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {services.map((service) => (
+            <div class="bg-white border border-[#d9d9d9] rounded-lg p-6 flex flex-col gap-2 shadow-sm">
+              <h3 class="font-semibold text-xl text-[#1e1e1e] leading-[1.2] tracking-tight">
+                {service.title}
+              </h3>
+              <p class="text-[#757575] text-sm leading-[1.4]">
+                {service.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

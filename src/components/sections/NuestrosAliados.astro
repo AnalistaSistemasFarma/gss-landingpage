@@ -1,0 +1,61 @@
+---
+// Partner logos from Figma Capa_1 node (2016:6577)
+// Row 1 (top row, left to right by x-position in design):
+// 2016:6691 area → ONE logo (3 layered parts)
+const imgOneA = "https://www.figma.com/api/mcp/asset/dd637b62-ec63-4344-b793-8da91c916f2f";
+const imgOneB = "https://www.figma.com/api/mcp/asset/5d8f1d14-192e-4515-a2ad-b78a4fc7a030";
+const imgOneC = "https://www.figma.com/api/mcp/asset/35266bb3-547e-40f0-a561-6291824a9e7a";
+// 2016:6714 → ONE Onco
+const imgOneOnco = "https://www.figma.com/api/mcp/asset/b7c2998b-d3b1-4016-84dd-5bd7c7333be9";
+// 2016:6750 → Kelab Analítica
+const imgKelab = "https://www.figma.com/api/mcp/asset/90d2cb6c-042f-4cac-8a3a-c666fbe4c34e";
+// 2016:6592 → MEDITRACK
+const imgMeditrack = "https://www.figma.com/api/mcp/asset/d2c3a7b0-cbe2-41e0-844b-716487ba931d";
+
+// Row 2 (bottom row, left to right):
+// 2016:6578 → Marana
+const imgMarana = "https://www.figma.com/api/mcp/asset/e45621fb-aaa1-426a-9dda-b8734b3c9c44";
+// 2016:6736 → Farmalogica
+const imgFarmalogica = "https://www.figma.com/api/mcp/asset/3e02df4b-1e82-4fc9-ae4d-a21d78546236";
+// 2016:6685 → RYAN
+const imgRyan = "https://www.figma.com/api/mcp/asset/92ef800e-9c48-4658-90fc-97d774e5e664";
+// 2126:231 → PISA Farmacéutica
+const imgPisa = "https://www.figma.com/api/mcp/asset/add75b64-fa69-4924-8208-6d26f0611c78";
+---
+
+<section class="bg-white w-full py-14 px-6 md:px-12 lg:px-20">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 items-center">
+      <!-- Row 1 -->
+      <!-- ONE logo (composed of 3 layered images) -->
+      <div class="relative h-20 flex items-center justify-center">
+        <img src={imgOneA} alt="ONE" class="absolute inset-0 w-full h-full object-contain" />
+        <img src={imgOneB} alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-contain" />
+        <img src={imgOneC} alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-contain" />
+      </div>
+      <div class="h-20 flex items-center justify-center">
+        <img src={imgOneOnco} alt="ONE Onco" class="max-h-full max-w-full object-contain" />
+      </div>
+      <div class="h-20 flex items-center justify-center">
+        <img src={imgKelab} alt="Kelab Analítica" class="max-h-full max-w-full object-contain" />
+      </div>
+      <div class="h-20 flex items-center justify-center">
+        <img src={imgMeditrack} alt="MEDITRACK" class="max-h-full max-w-full object-contain" />
+      </div>
+
+      <!-- Row 2 -->
+      <div class="h-20 flex items-center justify-center">
+        <img src={imgMarana} alt="Marana" class="max-h-full max-w-full object-contain" />
+      </div>
+      <div class="h-20 flex items-center justify-center">
+        <img src={imgFarmalogica} alt="Farmalogica" class="max-h-full max-w-full object-contain" />
+      </div>
+      <div class="h-20 flex items-center justify-center">
+        <img src={imgRyan} alt="RYAN" class="max-h-full max-w-full object-contain" />
+      </div>
+      <div class="h-20 flex items-center justify-center">
+        <img src={imgPisa} alt="PISA Farmacéutica" class="max-h-full max-w-full object-contain" />
+      </div>
+    </div>
+  </div>
+</section>
