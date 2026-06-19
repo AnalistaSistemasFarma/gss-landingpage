@@ -1,5 +1,5 @@
 export const SITE_NAME = 'GSS';
-export const SITE_URL = 'https://gss.com';
+export const SITE_URL = 'https://gsslatam.com';
 
 export const SOCIAL_MEDIA = {
   facebook: '',
