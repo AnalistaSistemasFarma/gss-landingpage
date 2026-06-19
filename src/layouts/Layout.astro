@@ -20,8 +20,51 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
+const imageURL = new URL(image, SITE_URL);
 const currentLang = Object.keys(languages).find(l => Astro.url.pathname.startsWith(`/${l}`)) || defaultLang;
 const baseRoute = Astro.url.pathname.replace(new RegExp(`^/${currentLang}`), '') || '/';
+
+// Datos estructurados (JSON-LD) para que los buscadores y la IA reconozcan la entidad GSS.
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${SITE_URL}/#organization`,
+  name: 'Group Shared Services Latinoamérica',
+  alternateName: ['GSS', 'GSSLATAM'],
+  url: `${SITE_URL}/${defaultLang}/`,
+  logo: { '@type': 'ImageObject', url: `${SITE_URL}/images/header/logogss.svg` },
+  description:
+    'GSS (Group Shared Services Latinoamérica) es un centro de servicios compartidos que convierte la complejidad organizacional en sistemas funcionales: finanzas, contabilidad, capital de trabajo, crédito y cartera, talento humano, legal, tecnología y asuntos regulatorios.',
+  address: { '@type': 'PostalAddress', addressCountry: 'CO' },
+  areaServed: ['CO', 'Latin America'],
+  knowsAbout: [
+    'Servicios compartidos',
+    'Finanzas corporativas',
+    'Contabilidad',
+    'Talento humano',
+    'Asuntos regulatorios farmacéuticos',
+    'Tecnología y desarrollo de software',
+  ],
+  subOrganization: [
+    { '@type': 'Organization', name: 'Farmalogica S.A.' },
+    { '@type': 'Organization', name: 'Laboratorios Ryan' },
+    { '@type': 'Organization', name: 'OneLATAM Pharma' },
+    { '@type': 'Organization', name: 'Abamia' },
+    { '@type': 'Organization', name: 'Meditrack' },
+    { '@type': 'Organization', name: 'Kelab' },
+  ],
+};
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE_URL}/#website`,
+  name: 'Group Shared Services Latinoamérica',
+  alternateName: 'GSS',
+  url: `${SITE_URL}/${defaultLang}/`,
+  description: 'Sitio oficial de Group Shared Services Latinoamérica (GSS).',
+  publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#organization` },
+  inLanguage: ['es', 'en'],
+};
 ---
 
 <html lang={lang}>
@@ -54,7 +97,7 @@ const baseRoute = Astro.url.pathname.replace(new RegExp(`^/${currentLang}`), '')
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={imageURL} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content={SITE_NAME} />
 
@@ -62,7 +105,11 @@ const baseRoute = Astro.url.pathname.replace(new RegExp(`^/${currentLang}`), '')
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image" content={imageURL} />
+
+    <!-- Datos estructurados (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   </head>
   <body>
     <slot />
