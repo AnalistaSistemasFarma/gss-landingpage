@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Astro 6 requiere Node >= 22.12.0; fijamos la versión para que el build de
+  # Netlify no falle con el Node por defecto del sitio.
+  NODE_VERSION = "22"
